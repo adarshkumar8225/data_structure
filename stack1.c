@@ -1,7 +1,8 @@
+//stack using array
 #include<stdio.h>
 #include<stdlib.h>
-void push(int *A,int data,int *top);
-void pop(int *A,int *top);
+void push(int *A,int data,int *top);//function to push element in stack
+void pop(int *A,int *top);//function to pop element at the top of stack
 int main()
 {
 	int A[20],top=-1,data,i;
