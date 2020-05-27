@@ -1,13 +1,15 @@
 //stack using array
 #include<stdio.h>
 #include<stdlib.h>
+
 void push(int *A,int data,int *top);//function to push element in stack
 void pop(int *A,int *top);//function to pop element at the top of stack
+void Display(int *A, int *top);//function to display the content of stack
 int main()
 {
 	int A[20],top=-1,data,i;
 	char c[5];
-	printf("enter the first element you want to insert:");
+	printf("enter the first element you want to insert in the stack:");
 	scanf("%d",&data);
 	top++;
 	A[top]=data;
@@ -22,18 +24,18 @@ int main()
 			push(&A,data,&top);
 		}
 		else if(strcmp(c,"pop")==0) pop(&A,&top);
-		else if(strcmp(c,"display")) break;
+		else if(strcmp(c,"display")==0)
+		{
+			Display(&A,&top);
+			break;
+		}
 		else
 		{
 			printf("invalid input\n");
 			break;
 		}
 	}
-printf("elements after push and pop is:\n");
-for(i=0;i<top+1;i++)
-    {
-    	printf("%d\n",A[top-i]);
-	}
+
 return 0;	
 }
 
@@ -63,4 +65,13 @@ void pop(int *A,int *top)
 	   	
 	}
 	
+}
+void Display(int *A, int *top)
+{
+	printf("elements after push and pop is:\n");
+        for(i=0;i<top+1;i++)
+        {
+		
+    	        printf("%d\n",A[top-i]);
+	}
 }
