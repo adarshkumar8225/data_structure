@@ -12,6 +12,9 @@ struct bs_node
 };
 
 void inorder_trav(struct bs_node *root);
+void preorder_trav(struct bs_node *root);
+void postorder_trav(struct bs_node *root);
+
 
 void insert_bt(struct bs_node **root,int p);
 
@@ -30,9 +33,23 @@ int main()
                 insert_bt(&root,p);
 	}
 	printf("\n");
-	
-	inorder_trav(root);
-	return 0;
+        printf("Inorder sequence:");
+
+        inorder_trav(root);
+
+        printf("\n");
+        printf("Preorder sequence:");
+
+        preorder_trav(root);
+
+        printf("\n");
+        printf("Postorder sequence:");
+
+        postorder_trav(root);
+
+        printf("\n");
+        return 0;
+
 }
 
 //function to insert into binary tree.Arugment is double pointer as we are changing the tree each time we insert a node.
@@ -67,3 +84,28 @@ void inorder_trav(struct bs_node *root)
 	printf("%d	",trav->data);//print data
 	inorder_trav(trav->right);// function for right subtree.
 }
+
+//function for preorder traversal
+void preorder_trav(struct bs_node *root)
+{
+        struct bs_node *trav;
+        trav=root;
+        if(trav==NULL) return ;
+        printf("%d      ",trav->data);
+        preorder_trav(trav->left);
+        preorder_trav(trav->right);
+}
+
+//function for post order traversal.
+void postorder_trav(struct bs_node *root)
+
+{
+        struct bs_node *trav;
+        trav= root;
+        if(trav == NULL) return;
+        postorder_trav(trav->left);
+        postorder_trav(trav->right);
+        printf("%d      ",trav->data);
+
+}
+
